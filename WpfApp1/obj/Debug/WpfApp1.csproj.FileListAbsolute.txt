@@ -1,0 +1,81 @@
+D:\4ИС1\Красникова А\wpf\WpfApp1\bin\Debug\WpfApp1.exe.config
+D:\4ИС1\Красникова А\wpf\WpfApp1\bin\Debug\WpfApp1.exe
+D:\4ИС1\Красникова А\wpf\WpfApp1\bin\Debug\WpfApp1.pdb
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\WpfApp1.csprojAssemblyReference.cache
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\MainWindow.g.cs
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\Pages\GroupsPage.g.cs
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\App.g.cs
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\MainWindow.baml
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\Pages\GroupsPage.baml
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\WpfApp1.g.resources
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\WpfApp1.exe
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\WpfApp1.pdb
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\Pages\TeacherPage.g.cs
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\Pages\TeacherPage.baml
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\Pages\StudentPage.g.cs
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\Pages\SubjectPage.g.cs
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\Pages\StudentPage.baml
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\Pages\SubjectPage.baml
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\Registration.g.cs
+D:\4ИС1\Красникова А\wpf\WpfApp1\obj\Debug\Registration.baml
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.csprojAssemblyReference.cache
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\MainWindow.g.cs
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\GroupsPage.g.cs
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\StudentPage.g.cs
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\SubjectPage.g.cs
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\TeacherPage.g.cs
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Registration.g.cs
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\App.g.cs
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.exe
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.pdb
+D:\4is1\Красникова А wpf\wpf\WpfApp1\bin\Debug\WpfApp1.exe.config
+D:\4is1\Красникова А wpf\wpf\WpfApp1\bin\Debug\WpfApp1.exe
+D:\4is1\Красникова А wpf\wpf\WpfApp1\bin\Debug\WpfApp1.pdb
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\MainWindow.baml
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\GroupsPage.baml
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\StudentPage.baml
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\SubjectPage.baml
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\TeacherPage.baml
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Registration.baml
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.g.resources
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
+D:\4is1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\bin\Debug\WpfApp1.exe.config
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\bin\Debug\WpfApp1.exe
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\bin\Debug\WpfApp1.pdb
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.csprojAssemblyReference.cache
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\MainWindow.g.cs
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\GroupsPage.g.cs
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\StudentPage.g.cs
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\SubjectPage.g.cs
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\TeacherPage.g.cs
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Registration.g.cs
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\App.g.cs
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\MainWindow.baml
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\GroupsPage.baml
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\StudentPage.baml
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\SubjectPage.baml
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Pages\TeacherPage.baml
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\Registration.baml
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.g.resources
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.exe
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.pdb
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\bin\Debug\EntityFramework.dll
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\bin\Debug\EntityFramework.SqlServer.dll
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\bin\Debug\EntityFramework.xml
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\bin\Debug\EntityFramework.SqlServer.xml
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1_Content.g.cs
+D:\4ИС1\Красникова А wpf\wpf\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete

@@ -1,0 +1,102 @@
+﻿<Page x:Class="WpfApp1.Pages.StudentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StudentPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="250"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="0" MaxWidth="250" x:Name="ChangeColumn"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Студенты" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"></Label>
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <Button x:Name="AddStudent" Click="ClickAddStudent" Content="Добавить" Width="75" Margin="5,5,0,5"/>
+            <Button x:Name="CopyStudent" Click="ClickCopyStudent" Content="Копировать" Width="75" Margin="5,5,0,5"/>
+            <Button x:Name="EditStudent" Click="ClickEditStudent" Content="Изменить" Width="75" Margin="5,5,0,5"/>
+            <Button x:Name="DeleteStudent" Click="ClickDeleteStudent" Content="Удалить" Width="75" Margin="5,5,0,5"/>
+        </StackPanel>
+        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <DataGrid x:Name="StudentDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="2">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.Header>Фамилия</DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding SURNAME_STUDENT}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.Header>Имя</DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding NAME_STUDENT}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.Header>Отчество</DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding PATRONYMIC_STUDENT}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.Header>Группа</DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding GROUPS.NAME_GROUP}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </DockPanel>
+        <GridSplitter Grid.Column="1" Grid.Row="2" Width="3" HorizontalAlignment="Stretch" />
+
+        <Button Content="X" Height="20" Width="20" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Click="StudentAddRollback_Click"></Button>
+
+        <StackPanel Grid.Column="2" Grid.Row="2" Orientation="Vertical">
+            <Label x:Name="StudentLabel" Content="Добавить группу" FontSize="16" FontWeight="Bold" Margin="5,0,0,0"/>
+
+            <Label Content="Фамилия" Margin="5,0,0,0"/>
+            <TextBox x:Name="TextSurnameStudent" Text="{Binding ElementName=StudentDataGrid, Path=SelectedItem.SURNAME_STUDENT}"  Height="25" Margin="5,0,0,0"/>
+
+            <Label Content="Имя" Margin="5,0,0,0"/>
+            <TextBox x:Name="TextNameStudent" Text="{Binding ElementName=StudentDataGrid, Path=SelectedItem.NAME_STUDENT}"  Height="25" Margin="5,0,0,0"/>
+
+            <Label Content="Отчество" Margin="5,0,0,0"/>
+            <TextBox x:Name="TextPatronymicStudent" Text="{Binding ElementName=StudentDataGrid, Path=SelectedItem.PATRONYMIC_STUDENT}"  Height="25" Margin="5,0,0,0"/>
+
+            <Label Content="Группа" Margin="5,0,0,0"/>
+            <ComboBox x:Name="GroupComboBox" Height="25" Margin="5,0,0,0"  DisplayMemberPath="NAME_GROUP" Text="{Binding ElementName=StudentDataGrid, Path=SelectedItem.GROUPS.NAME_GROUP}"/>
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+                <Button x:Name="StudentAddCommit" Content="Добавить" Height="30" Padding="5,5,5,5" Margin="5,5,0,5" Click="StudentAddCommit_Click" />
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>

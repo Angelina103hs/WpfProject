@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="is4_KrasnikovaA_BaseTestingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ANSWERS">
+    <Key>
+      <PropertyRef Name="ID_ANSWER" />
+    </Key>
+    <Property Name="ID_ANSWER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ANSWER" Type="varchar" MaxLength="50" />
+    <Property Name="TRUE_ANSWER" Type="smallint" />
+    <Property Name="ID_QUESTION" Type="int" />
+  </EntityType>
+  <EntityType Name="GROUPS">
+    <Key>
+      <PropertyRef Name="ID_GROUP" />
+    </Key>
+    <Property Name="ID_GROUP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME_GROUP" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="QUESTIONS">
+    <Key>
+      <PropertyRef Name="ID_QUESTION" />
+    </Key>
+    <Property Name="ID_QUESTION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_TEST" Type="int" />
+    <Property Name="QUESTION" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="REGISTRATION">
+    <Key>
+      <PropertyRef Name="ID_REGISTRATION" />
+    </Key>
+    <Property Name="ID_REGISTRATION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="START_TIME" Type="time" Precision="7" />
+    <Property Name="END_TIME" Type="time" Precision="7" />
+    <Property Name="THE_DATE_OF_THE" Type="date" />
+    <Property Name="ID_STUDENT" Type="int" />
+  </EntityType>
+  <EntityType Name="STUDENTS">
+    <Key>
+      <PropertyRef Name="ID_STUDENT" />
+    </Key>
+    <Property Name="ID_STUDENT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SURNAME_STUDENT" Type="varchar" MaxLength="15" />
+    <Property Name="NAME_STUDENT" Type="varchar" MaxLength="15" />
+    <Property Name="PATRONYMIC_STUDENT" Type="varchar" MaxLength="15" />
+    <Property Name="LOGIN" Type="varchar" MaxLength="20" />
+    <Property Name="PASSWORDD" Type="varchar" MaxLength="20" />
+    <Property Name="ID_GROUP" Type="int" />
+  </EntityType>
+  <EntityType Name="SUBJECTS">
+    <Key>
+      <PropertyRef Name="ID_SUBJECT" />
+    </Key>
+    <Property Name="ID_SUBJECT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SUBJECT" Type="varchar" MaxLength="30" />
+    <Property Name="ID_TEACHER" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TEACHERS">
+    <Key>
+      <PropertyRef Name="ID_TEACHER" />
+    </Key>
+    <Property Name="ID_TEACHER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SURNAME_TEACHER" Type="varchar" MaxLength="15" />
+    <Property Name="NAME_TEACHER" Type="varchar" MaxLength="15" />
+    <Property Name="PATRONYMIC_TEACHER" Type="varchar" MaxLength="15" />
+    <Property Name="LOGIN" Type="varchar" MaxLength="20" />
+    <Property Name="PASSWORDD" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TEST_T">
+    <Key>
+      <PropertyRef Name="ID_TEST" />
+    </Key>
+    <Property Name="ID_TEST" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME_TEST" Type="varchar" MaxLength="30" />
+    <Property Name="ID_THEME" Type="int" />
+  </EntityType>
+  <EntityType Name="TESTING">
+    <Key>
+      <PropertyRef Name="ID_TESTING" />
+    </Key>
+    <Property Name="ID_TESTING" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_REGISTRATION" Type="int" />
+    <Property Name="ID_TEST" Type="int" />
+    <Property Name="ID_ANSWER" Type="int" />
+  </EntityType>
+  <EntityType Name="THEME_T">
+    <Key>
+      <PropertyRef Name="ID_THEME" />
+    </Key>
+    <Property Name="ID_THEME" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME_THEME" Type="varchar" MaxLength="50" />
+    <Property Name="ID_SUBJECT" Type="int" />
+  </EntityType>
+  <Association Name="Fk_ANSWERS">
+    <End Role="QUESTIONS" Type="Self.QUESTIONS" Multiplicity="0..1" />
+    <End Role="ANSWERS" Type="Self.ANSWERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUESTIONS">
+        <PropertyRef Name="ID_QUESTION" />
+      </Principal>
+      <Dependent Role="ANSWERS">
+        <PropertyRef Name="ID_QUESTION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_QUESTIONS">
+    <End Role="TEST_T" Type="Self.TEST_T" Multiplicity="0..1" />
+    <End Role="QUESTIONS" Type="Self.QUESTIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEST_T">
+        <PropertyRef Name="ID_TEST" />
+      </Principal>
+      <Dependent Role="QUESTIONS">
+        <PropertyRef Name="ID_TEST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_REGISTRATION">
+    <End Role="STUDENTS" Type="Self.STUDENTS" Multiplicity="0..1" />
+    <End Role="REGISTRATION" Type="Self.REGISTRATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STUDENTS">
+        <PropertyRef Name="ID_STUDENT" />
+      </Principal>
+      <Dependent Role="REGISTRATION">
+        <PropertyRef Name="ID_STUDENT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_STUDENTS">
+    <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="0..1" />
+    <End Role="STUDENTS" Type="Self.STUDENTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GROUPS">
+        <PropertyRef Name="ID_GROUP" />
+      </Principal>
+      <Dependent Role="STUDENTS">
+        <PropertyRef Name="ID_GROUP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_SUBJECTS">
+    <End Role="TEACHERS" Type="Self.TEACHERS" Multiplicity="0..1" />
+    <End Role="SUBJECTS" Type="Self.SUBJECTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEACHERS">
+        <PropertyRef Name="ID_TEACHER" />
+      </Principal>
+      <Dependent Role="SUBJECTS">
+        <PropertyRef Name="ID_TEACHER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_TEST_T">
+    <End Role="THEME_T" Type="Self.THEME_T" Multiplicity="0..1" />
+    <End Role="TEST_T" Type="Self.TEST_T" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THEME_T">
+        <PropertyRef Name="ID_THEME" />
+      </Principal>
+      <Dependent Role="TEST_T">
+        <PropertyRef Name="ID_THEME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_TESTING">
+    <End Role="REGISTRATION" Type="Self.REGISTRATION" Multiplicity="0..1" />
+    <End Role="TESTING" Type="Self.TESTING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGISTRATION">
+        <PropertyRef Name="ID_REGISTRATION" />
+      </Principal>
+      <Dependent Role="TESTING">
+        <PropertyRef Name="ID_REGISTRATION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_TESTING_1">
+    <End Role="TEST_T" Type="Self.TEST_T" Multiplicity="0..1" />
+    <End Role="TESTING" Type="Self.TESTING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEST_T">
+        <PropertyRef Name="ID_TEST" />
+      </Principal>
+      <Dependent Role="TESTING">
+        <PropertyRef Name="ID_TEST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_TESTING_2">
+    <End Role="ANSWERS" Type="Self.ANSWERS" Multiplicity="0..1" />
+    <End Role="TESTING" Type="Self.TESTING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANSWERS">
+        <PropertyRef Name="ID_ANSWER" />
+      </Principal>
+      <Dependent Role="TESTING">
+        <PropertyRef Name="ID_ANSWER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_THEME_T">
+    <End Role="SUBJECTS" Type="Self.SUBJECTS" Multiplicity="0..1" />
+    <End Role="THEME_T" Type="Self.THEME_T" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUBJECTS">
+        <PropertyRef Name="ID_SUBJECT" />
+      </Principal>
+      <Dependent Role="THEME_T">
+        <PropertyRef Name="ID_SUBJECT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="is4_KrasnikovaA_BaseTestingModelStoreContainer">
+    <EntitySet Name="ANSWERS" EntityType="Self.ANSWERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GROUPS" EntityType="Self.GROUPS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QUESTIONS" EntityType="Self.QUESTIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REGISTRATION" EntityType="Self.REGISTRATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STUDENTS" EntityType="Self.STUDENTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUBJECTS" EntityType="Self.SUBJECTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TEACHERS" EntityType="Self.TEACHERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TEST_T" EntityType="Self.TEST_T" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TESTING" EntityType="Self.TESTING" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THEME_T" EntityType="Self.THEME_T" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Fk_ANSWERS" Association="Self.Fk_ANSWERS">
+      <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+      <End Role="ANSWERS" EntitySet="ANSWERS" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_QUESTIONS" Association="Self.Fk_QUESTIONS">
+      <End Role="TEST_T" EntitySet="TEST_T" />
+      <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_REGISTRATION" Association="Self.Fk_REGISTRATION">
+      <End Role="STUDENTS" EntitySet="STUDENTS" />
+      <End Role="REGISTRATION" EntitySet="REGISTRATION" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_STUDENTS" Association="Self.Fk_STUDENTS">
+      <End Role="GROUPS" EntitySet="GROUPS" />
+      <End Role="STUDENTS" EntitySet="STUDENTS" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_SUBJECTS" Association="Self.Fk_SUBJECTS">
+      <End Role="TEACHERS" EntitySet="TEACHERS" />
+      <End Role="SUBJECTS" EntitySet="SUBJECTS" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_TEST_T" Association="Self.Fk_TEST_T">
+      <End Role="THEME_T" EntitySet="THEME_T" />
+      <End Role="TEST_T" EntitySet="TEST_T" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_TESTING" Association="Self.Fk_TESTING">
+      <End Role="REGISTRATION" EntitySet="REGISTRATION" />
+      <End Role="TESTING" EntitySet="TESTING" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_TESTING_1" Association="Self.Fk_TESTING_1">
+      <End Role="TEST_T" EntitySet="TEST_T" />
+      <End Role="TESTING" EntitySet="TESTING" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_TESTING_2" Association="Self.Fk_TESTING_2">
+      <End Role="ANSWERS" EntitySet="ANSWERS" />
+      <End Role="TESTING" EntitySet="TESTING" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_THEME_T" Association="Self.Fk_THEME_T">
+      <End Role="SUBJECTS" EntitySet="SUBJECTS" />
+      <End Role="THEME_T" EntitySet="THEME_T" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="614104647a2b4df7b1c6658517262661" Name="Diagram1">
+        <EntityTypeShape EntityType="is4_KrasnikovaA_BaseTestingModel.ANSWERS" Width="1.5" PointX="12" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="is4_KrasnikovaA_BaseTestingModel.GROUPS" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="is4_KrasnikovaA_BaseTestingModel.QUESTIONS" Width="1.5" PointX="9.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="is4_KrasnikovaA_BaseTestingModel.REGISTRATION" Width="1.5" PointX="12" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="is4_KrasnikovaA_BaseTestingModel.STUDENTS" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="is4_KrasnikovaA_BaseTestingModel.SUBJECTS" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="is4_KrasnikovaA_BaseTestingModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="is4_KrasnikovaA_BaseTestingModel.TEACHERS" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="is4_KrasnikovaA_BaseTestingModel.TEST_T" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="is4_KrasnikovaA_BaseTestingModel.TESTING" Width="1.5" PointX="14.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="is4_KrasnikovaA_BaseTestingModel.THEME_T" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="is4_KrasnikovaA_BaseTestingModel.Fk_ANSWERS" ManuallyRouted="false" />
+        <AssociationConnector Association="is4_KrasnikovaA_BaseTestingModel.Fk_TESTING_2" ManuallyRouted="false" />
+        <AssociationConnector Association="is4_KrasnikovaA_BaseTestingModel.Fk_STUDENTS" ManuallyRouted="false" />
+        <AssociationConnector Association="is4_KrasnikovaA_BaseTestingModel.Fk_QUESTIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="is4_KrasnikovaA_BaseTestingModel.Fk_REGISTRATION" ManuallyRouted="false" />
+        <AssociationConnector Association="is4_KrasnikovaA_BaseTestingModel.Fk_TESTING" ManuallyRouted="false" />
+        <AssociationConnector Association="is4_KrasnikovaA_BaseTestingModel.Fk_SUBJECTS" ManuallyRouted="false" />
+        <AssociationConnector Association="is4_KrasnikovaA_BaseTestingModel.Fk_THEME_T" ManuallyRouted="false" />
+        <AssociationConnector Association="is4_KrasnikovaA_BaseTestingModel.Fk_TEST_T" ManuallyRouted="false" />
+        <AssociationConnector Association="is4_KrasnikovaA_BaseTestingModel.Fk_TESTING_1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,98 @@
+﻿<Page x:Class="WpfApp1.Pages.SubjectPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SubjectPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="250"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="0" MaxWidth="250" x:Name="ChangeColumn"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Дисциплины" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"></Label>
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <Button x:Name="AddSubject" Click="ClickAddSubject" Content="Добавить" Width="75" Margin="5,5,0,5"/>
+            <Button x:Name="CopySubject" Click="ClickCopySubject" Content="Копировать" Width="75" Margin="5,5,0,5"/>
+            <Button x:Name="EditSubject" Click="ClickEditSubject" Content="Изменить" Width="75" Margin="5,5,0,5"/>
+            <Button x:Name="DeleteSubject" Click="ClickDeleteSubject" Content="Удалить" Width="75" Margin="5,5,0,5"/>
+        </StackPanel>
+        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <DataGrid x:Name="SubjectDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="2">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.Header>Дисциплина</DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding SUBJECT}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.Header>Фамилия преподавателя</DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding TEACHERS.SURNAME_TEACHER}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.Header>Имя</DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding TEACHERS.NAME_TEACHER}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.Header>Отчество</DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding TEACHERS.PATRONYMIC_TEACHER}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </DockPanel>
+
+        <GridSplitter Grid.Column="1" Grid.Row="2" Width="3" HorizontalAlignment="Stretch" />
+
+        <Button Content="X" Height="20" Width="20" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Click="SubjectAddRollback_Click"></Button>
+
+        <StackPanel Grid.Column="2" Grid.Row="2" Orientation="Vertical">
+            <Label x:Name="SubjectLabel" Content="Добавить дисциплину" FontSize="16" FontWeight="Bold" Margin="5,0,0,0"/>
+
+            <Label Content="Дисциплина" Margin="5,0,0,0"/>
+            <TextBox x:Name="TextSubject" Text="{Binding ElementName=SubjectDataGrid, Path=SelectedItem.SUBJECT}"  Height="25" Margin="5,0,0,0"/>
+
+            <Label Content="Фамилия" Margin="5,0,0,0"/>
+            <ComboBox x:Name="SurnameTeacherComboBox" Height="25" Margin="5,0,0,0"  DisplayMemberPath="SURNAME_TEACHER" Text="{Binding ElementName=SubjectDataGrid, Path=SelectedItem.TEACHERS.SURNAME_TEACHER}"/>
+
+            
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+                <Button x:Name="SubjectAddCommit" Content="Добавить" Height="30" Padding="5,5,5,5" Margin="5,5,0,5" Click="SubjectAddCommit_Click" />
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>

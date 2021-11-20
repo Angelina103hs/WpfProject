@@ -1,0 +1,57 @@
+﻿<Page x:Class="BaseWPFClientEx.Pages.ReadersDlgPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BaseWPFClientEx.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="400"
+      Title="ReadersDlgPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="CaptionLabel" Grid.Row="0" Content="Новый читатель"
+               Style="{StaticResource CaptionLabelStyle}"/>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="5,0" >
+            <Label Content="Фамилия" />
+            <TextBox x:Name="SurnameTextBox" Text="{Binding Reader.Surname}" TabIndex="0" />
+            <Label Content="Имя" />
+            <TextBox x:Name="NameTextBox" Text="{Binding Reader.Name}" TabIndex="1" />
+            <Label Content="Отчетство" />
+            <TextBox x:Name="PatronymicTextBox" Text="{Binding Reader.Patronymic}" 
+                     TabIndex="2" />
+            <Label Content="Дата рождения" />
+            <DatePicker x:Name="BirthdateDatePicker" TabIndex="3"
+                        SelectedDate="{Binding Reader.Birthdate}" />
+            <Label Content="Пол" />
+            <ComboBox x:Name="SexesComboBox" ItemsSource="{Binding Sexes}" TabIndex="4" 
+                      DisplayMemberPath="Name" SelectedItem="{Binding Reader.Sexes}" />
+            <Label Content="Фотография" />
+            <StackPanel Orientation="Horizontal">
+                <Border Background="LightGray" BorderThickness="1" BorderBrush="Gray">
+                    <Image x:Name="PhotoImage" Height="150" Width="150"
+                           Source="{Binding Reader.Photo}" />
+                </Border>
+                <StackPanel Orientation="Vertical" Margin="10,0">
+                    <Button x:Name="LoadPhotoButton" Content="Загрузить" Height="25"
+                            Width="75" Click="LoadPhotoButton_Click" TabIndex="5" />
+                    <Button x:Name="ClearPhotoButton" Content="Очистить" Height="25"
+                            Width="75" Margin="0,10" TabIndex="6"
+                            Click="ClearPhotoButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10">
+                <Button x:Name="CancelButton" Content="Отмена" Height="25" Width="75"
+                       IsCancel="True" TabIndex="8" Click="CancelButton_Click" />
+                <Button x:Name="OkButton" Content="ОК" Height="25" Width="75" 
+                        Margin="10,0,0,0" TabIndex="7" IsDefault="True"
+                        Click="OkButton_Click" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,55 @@
+﻿<Application x:Class="BaseWPFClientEx.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:BaseWPFClientEx"
+             StartupUri="AuthWindow.xaml">
+    <Application.Resources>
+        
+        <Style x:Key="CaptionLabelStyle">
+            <Setter Property="Control.FontSize" Value="16" />
+            <Setter Property="Control.FontWeight" Value="Bold" />
+            <Setter Property="Control.Background" Value="Beige" />
+        </Style>
+
+        <Style TargetType="Button" >
+            <Setter Property="Background" Value="LightYellow" />
+            <Setter Property="Foreground" Value="LightSeaGreen" />
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="22" />
+        </Style>
+
+        <Style TargetType="PasswordBox">
+            <Setter Property="Height" Value="22" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="22" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="22" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        
+        <Style TargetType="DataGrid">
+            <Setter Property="ItemsSource" Value="{Binding}" />
+            <Setter Property="AutoGenerateColumns" Value="False" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="CanUserResizeRows" Value="False" />
+            <Setter Property="VerticalGridLinesBrush" Value="Silver" />
+            <Setter Property="HorizontalGridLinesBrush" Value="Silver" />
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="BorderThickness" Value="0.5" />
+            <Setter Property="RowHeaderWidth" Value="0" />
+            <Setter Property="HorizontalScrollBarVisibility" Value="Hidden" />
+        </Style>
+
+        <Style TargetType="GridSplitter">
+            <Setter Property="Background" Value="LightGray" />
+        </Style>
+    </Application.Resources>
+</Application>

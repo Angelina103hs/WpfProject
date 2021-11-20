@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="is4_KrasnikovaA_BaseTestingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ANSWERS">
+    <Key>
+      <PropertyRef Name="ID_ANSWER" />
+    </Key>
+    <Property Name="ID_ANSWER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ANSWER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TRUE_ANSWER" Type="Int16" />
+    <Property Name="ID_QUESTION" Type="Int32" />
+    <NavigationProperty Name="QUESTIONS" Relationship="Self.Fk_ANSWERS" FromRole="ANSWERS" ToRole="QUESTIONS" />
+    <NavigationProperty Name="TESTING" Relationship="Self.Fk_TESTING_2" FromRole="ANSWERS" ToRole="TESTING" />
+  </EntityType>
+  <EntityType Name="GROUPS">
+    <Key>
+      <PropertyRef Name="ID_GROUP" />
+    </Key>
+    <Property Name="ID_GROUP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME_GROUP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="STUDENTS" Relationship="Self.Fk_STUDENTS" FromRole="GROUPS" ToRole="STUDENTS" />
+  </EntityType>
+  <EntityType Name="QUESTIONS">
+    <Key>
+      <PropertyRef Name="ID_QUESTION" />
+    </Key>
+    <Property Name="ID_QUESTION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_TEST" Type="Int32" />
+    <Property Name="QUESTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ANSWERS" Relationship="Self.Fk_ANSWERS" FromRole="QUESTIONS" ToRole="ANSWERS" />
+    <NavigationProperty Name="TEST_T" Relationship="Self.Fk_QUESTIONS" FromRole="QUESTIONS" ToRole="TEST_T" />
+  </EntityType>
+  <EntityType Name="REGISTRATION">
+    <Key>
+      <PropertyRef Name="ID_REGISTRATION" />
+    </Key>
+    <Property Name="ID_REGISTRATION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="START_TIME" Type="Time" Precision="7" />
+    <Property Name="END_TIME" Type="Time" Precision="7" />
+    <Property Name="THE_DATE_OF_THE" Type="DateTime" Precision="0" />
+    <Property Name="ID_STUDENT" Type="Int32" />
+    <NavigationProperty Name="STUDENTS" Relationship="Self.Fk_REGISTRATION" FromRole="REGISTRATION" ToRole="STUDENTS" />
+    <NavigationProperty Name="TESTING" Relationship="Self.Fk_TESTING" FromRole="REGISTRATION" ToRole="TESTING" />
+  </EntityType>
+  <EntityType Name="STUDENTS">
+    <Key>
+      <PropertyRef Name="ID_STUDENT" />
+    </Key>
+    <Property Name="ID_STUDENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SURNAME_STUDENT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NAME_STUDENT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PATRONYMIC_STUDENT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="LOGIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORDD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ID_GROUP" Type="Int32" />
+    <NavigationProperty Name="GROUPS" Relationship="Self.Fk_STUDENTS" FromRole="STUDENTS" ToRole="GROUPS" />
+    <NavigationProperty Name="REGISTRATION" Relationship="Self.Fk_REGISTRATION" FromRole="STUDENTS" ToRole="REGISTRATION" />
+  </EntityType>
+  <EntityType Name="SUBJECTS">
+    <Key>
+      <PropertyRef Name="ID_SUBJECT" />
+    </Key>
+    <Property Name="ID_SUBJECT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SUBJECT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ID_TEACHER" Type="Int32" />
+    <NavigationProperty Name="TEACHERS" Relationship="Self.Fk_SUBJECTS" FromRole="SUBJECTS" ToRole="TEACHERS" />
+    <NavigationProperty Name="THEME_T" Relationship="Self.Fk_THEME_T" FromRole="SUBJECTS" ToRole="THEME_T" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TEACHERS">
+    <Key>
+      <PropertyRef Name="ID_TEACHER" />
+    </Key>
+    <Property Name="ID_TEACHER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SURNAME_TEACHER" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NAME_TEACHER" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PATRONYMIC_TEACHER" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="LOGIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORDD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SUBJECTS" Relationship="Self.Fk_SUBJECTS" FromRole="TEACHERS" ToRole="SUBJECTS" />
+  </EntityType>
+  <EntityType Name="TEST_T">
+    <Key>
+      <PropertyRef Name="ID_TEST" />
+    </Key>
+    <Property Name="ID_TEST" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME_TEST" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ID_THEME" Type="Int32" />
+    <NavigationProperty Name="QUESTIONS" Relationship="Self.Fk_QUESTIONS" FromRole="TEST_T" ToRole="QUESTIONS" />
+    <NavigationProperty Name="THEME_T" Relationship="Self.Fk_TEST_T" FromRole="TEST_T" ToRole="THEME_T" />
+    <NavigationProperty Name="TESTING" Relationship="Self.Fk_TESTING_1" FromRole="TEST_T" ToRole="TESTING" />
+  </EntityType>
+  <EntityType Name="TESTING">
+    <Key>
+      <PropertyRef Name="ID_TESTING" />
+    </Key>
+    <Property Name="ID_TESTING" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_REGISTRATION" Type="Int32" />
+    <Property Name="ID_TEST" Type="Int32" />
+    <Property Name="ID_ANSWER" Type="Int32" />
+    <NavigationProperty Name="ANSWERS" Relationship="Self.Fk_TESTING_2" FromRole="TESTING" ToRole="ANSWERS" />
+    <NavigationProperty Name="REGISTRATION" Relationship="Self.Fk_TESTING" FromRole="TESTING" ToRole="REGISTRATION" />
+    <NavigationProperty Name="TEST_T" Relationship="Self.Fk_TESTING_1" FromRole="TESTING" ToRole="TEST_T" />
+  </EntityType>
+  <EntityType Name="THEME_T">
+    <Key>
+      <PropertyRef Name="ID_THEME" />
+    </Key>
+    <Property Name="ID_THEME" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME_THEME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_SUBJECT" Type="Int32" />
+    <NavigationProperty Name="SUBJECTS" Relationship="Self.Fk_THEME_T" FromRole="THEME_T" ToRole="SUBJECTS" />
+    <NavigationProperty Name="TEST_T" Relationship="Self.Fk_TEST_T" FromRole="THEME_T" ToRole="TEST_T" />
+  </EntityType>
+  <Association Name="Fk_ANSWERS">
+    <End Role="QUESTIONS" Type="Self.QUESTIONS" Multiplicity="0..1" />
+    <End Role="ANSWERS" Type="Self.ANSWERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUESTIONS">
+        <PropertyRef Name="ID_QUESTION" />
+      </Principal>
+      <Dependent Role="ANSWERS">
+        <PropertyRef Name="ID_QUESTION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_TESTING_2">
+    <End Role="ANSWERS" Type="Self.ANSWERS" Multiplicity="0..1" />
+    <End Role="TESTING" Type="Self.TESTING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANSWERS">
+        <PropertyRef Name="ID_ANSWER" />
+      </Principal>
+      <Dependent Role="TESTING">
+        <PropertyRef Name="ID_ANSWER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_STUDENTS">
+    <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="0..1" />
+    <End Role="STUDENTS" Type="Self.STUDENTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GROUPS">
+        <PropertyRef Name="ID_GROUP" />
+      </Principal>
+      <Dependent Role="STUDENTS">
+        <PropertyRef Name="ID_GROUP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_QUESTIONS">
+    <End Role="TEST_T" Type="Self.TEST_T" Multiplicity="0..1" />
+    <End Role="QUESTIONS" Type="Self.QUESTIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEST_T">
+        <PropertyRef Name="ID_TEST" />
+      </Principal>
+      <Dependent Role="QUESTIONS">
+        <PropertyRef Name="ID_TEST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_REGISTRATION">
+    <End Role="STUDENTS" Type="Self.STUDENTS" Multiplicity="0..1" />
+    <End Role="REGISTRATION" Type="Self.REGISTRATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STUDENTS">
+        <PropertyRef Name="ID_STUDENT" />
+      </Principal>
+      <Dependent Role="REGISTRATION">
+        <PropertyRef Name="ID_STUDENT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_TESTING">
+    <End Role="REGISTRATION" Type="Self.REGISTRATION" Multiplicity="0..1" />
+    <End Role="TESTING" Type="Self.TESTING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGISTRATION">
+        <PropertyRef Name="ID_REGISTRATION" />
+      </Principal>
+      <Dependent Role="TESTING">
+        <PropertyRef Name="ID_REGISTRATION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_SUBJECTS">
+    <End Role="TEACHERS" Type="Self.TEACHERS" Multiplicity="0..1" />
+    <End Role="SUBJECTS" Type="Self.SUBJECTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEACHERS">
+        <PropertyRef Name="ID_TEACHER" />
+      </Principal>
+      <Dependent Role="SUBJECTS">
+        <PropertyRef Name="ID_TEACHER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_THEME_T">
+    <End Role="SUBJECTS" Type="Self.SUBJECTS" Multiplicity="0..1" />
+    <End Role="THEME_T" Type="Self.THEME_T" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUBJECTS">
+        <PropertyRef Name="ID_SUBJECT" />
+      </Principal>
+      <Dependent Role="THEME_T">
+        <PropertyRef Name="ID_SUBJECT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_TEST_T">
+    <End Role="THEME_T" Type="Self.THEME_T" Multiplicity="0..1" />
+    <End Role="TEST_T" Type="Self.TEST_T" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THEME_T">
+        <PropertyRef Name="ID_THEME" />
+      </Principal>
+      <Dependent Role="TEST_T">
+        <PropertyRef Name="ID_THEME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_TESTING_1">
+    <End Role="TEST_T" Type="Self.TEST_T" Multiplicity="0..1" />
+    <End Role="TESTING" Type="Self.TESTING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEST_T">
+        <PropertyRef Name="ID_TEST" />
+      </Principal>
+      <Dependent Role="TESTING">
+        <PropertyRef Name="ID_TEST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="is4_KrasnikovaA_BaseTestingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ANSWERS" EntityType="Self.ANSWERS" />
+    <EntitySet Name="GROUPS" EntityType="Self.GROUPS" />
+    <EntitySet Name="QUESTIONS" EntityType="Self.QUESTIONS" />
+    <EntitySet Name="REGISTRATION" EntityType="Self.REGISTRATION" />
+    <EntitySet Name="STUDENTS" EntityType="Self.STUDENTS" />
+    <EntitySet Name="SUBJECTS" EntityType="Self.SUBJECTS" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TEACHERS" EntityType="Self.TEACHERS" />
+    <EntitySet Name="TEST_T" EntityType="Self.TEST_T" />
+    <EntitySet Name="TESTING" EntityType="Self.TESTING" />
+    <EntitySet Name="THEME_T" EntityType="Self.THEME_T" />
+    <AssociationSet Name="Fk_ANSWERS" Association="Self.Fk_ANSWERS">
+      <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+      <End Role="ANSWERS" EntitySet="ANSWERS" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_TESTING_2" Association="Self.Fk_TESTING_2">
+      <End Role="ANSWERS" EntitySet="ANSWERS" />
+      <End Role="TESTING" EntitySet="TESTING" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_STUDENTS" Association="Self.Fk_STUDENTS">
+      <End Role="GROUPS" EntitySet="GROUPS" />
+      <End Role="STUDENTS" EntitySet="STUDENTS" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_QUESTIONS" Association="Self.Fk_QUESTIONS">
+      <End Role="TEST_T" EntitySet="TEST_T" />
+      <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_REGISTRATION" Association="Self.Fk_REGISTRATION">
+      <End Role="STUDENTS" EntitySet="STUDENTS" />
+      <End Role="REGISTRATION" EntitySet="REGISTRATION" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_TESTING" Association="Self.Fk_TESTING">
+      <End Role="REGISTRATION" EntitySet="REGISTRATION" />
+      <End Role="TESTING" EntitySet="TESTING" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_SUBJECTS" Association="Self.Fk_SUBJECTS">
+      <End Role="TEACHERS" EntitySet="TEACHERS" />
+      <End Role="SUBJECTS" EntitySet="SUBJECTS" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_THEME_T" Association="Self.Fk_THEME_T">
+      <End Role="SUBJECTS" EntitySet="SUBJECTS" />
+      <End Role="THEME_T" EntitySet="THEME_T" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_TEST_T" Association="Self.Fk_TEST_T">
+      <End Role="THEME_T" EntitySet="THEME_T" />
+      <End Role="TEST_T" EntitySet="TEST_T" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_TESTING_1" Association="Self.Fk_TESTING_1">
+      <End Role="TEST_T" EntitySet="TEST_T" />
+      <End Role="TESTING" EntitySet="TESTING" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
